@@ -1,0 +1,115 @@
+
+
+{
+  "name": "ᴀɴɪᴇ x ᴇɪᴄᴀ ᴍᴜꜱɪᴄ ʙᴏᴛ",
+  "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
+  "logo": "https://telegra.ph/file/b37803a767b15e939513d.png",
+  "keywords": [
+  "python3",
+  "telegram",
+  "bot",
+  "ᴀɴɪᴇ",
+  "MusicBot",
+  "telegram-bot",
+  "pyrogram"
+  ],
+  "env": {
+    "API_ID": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": "28235840",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": "b6d75900095294f59d32c9d7f04f3cfd",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "A Bot's token from Botfather",
+      "value": "7758662821:AAHMVvkI2CocuXAz-Y8NLQnxL-uTBK_hD9w",
+      "required": true
+    },
+    "MONGO_DB_URI": {
+      "description": "Get a mongodb url from https://cloud.mongodb.com.",
+      "value": "mongodb+srv://Hutao:Hutaobot@cluster0.izwosfg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "The user id of user whom you would like to add as OWNER.from @Sophia_x_MusicBot on Telegram.",
+      "value": "7595051499",
+      "required": true
+    },
+   "SUPPORT_CHANNEL": {
+      "description": "Add channel link",
+      "value": "https://t.me/MBT_UPDATES",
+      "required": true
+    },
+      "SUPPORT_CHAT": {
+      "description": "Add Chat group & support group Link",
+      "value": "https://t.me/+C0s3qb7sRZA0ZjRk",
+      "required": true
+    },
+    "STRING_SESSION": {
+      "description": "A Pyrogram String Session from @Sessoin_String_gen_BOT on Telegram.",
+      "value": "BQGu2EAAvMOD-sufBvFw-4pSkpZU0UB-H5q5JXMNhiRXXr7yiFgMUNHVy0ruYrxNHD3zwibTGcmGuBXPp24sEHVDPBETykiPAh9yaJERVk0THlZyv131R1LoPyRAzpdwpDy06hZ9aGJd5raTwzoYBgb_8xG2txRqlgSOq7LSsiBA1yJ3jU6IQrYNQ-lv0Ju1JI_PjHaf_OdIvzbbsz_MAmJcBQeJnobGHEMDUh5EMIrRHdPYNclLrxxDsJENeoFbG_3f5sMb8-lXDPmkhzd-pa9cvg7izy5D1alZ7k9rNpGDnB6-IpxH9gg2VdL1bHBotW1UlZXjuRHYMUv7bMf_N95K_H5Q6gAAAAG8798VAA",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Your Heroku account's API key",
+      "value": "HRKU-244ce902-f5e3-4c52-94d6-b5c4bb4ab7e5",
+      "required": false
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Your heroku app name",
+      "value": "",
+      "required": false
+    },
+    "UPSTREAM_REPO": {
+      "description": "If you dont know this, Leave as it is",
+      "value": "https://github.com/SONGSONG220/AnieXEricaMusic",
+      "required": false
+    },
+    "UPSTREAM_BRANCH": {
+      "description": "Upstream Repo's Branch Name",
+      "value": "main",
+      "required": false
+    },
+    "AUTO_LEAVING_ASSISTANT": {
+      "description": "Time after which you're assistant account will leave chats automatically. u want off use False To None Leave auto assis from groups",
+      "value": "True",
+      "required": true 
+    },
+    "START_IMG_URL": {
+      "description": "Your Bot Start Time Pic tgm link from @Sophia_x_MusicBot on Telegram.",
+      "value": "https://files.catbox.moe/cw00x2.jpg",
+      "required": false
+    },
+    "PING_IMG_URL": {
+      "description": "Your Bot Ping Check Time Pic tgm link from @Sophia_x_MusicBot on Telegram.",
+      "value": "https://files.catbox.moe/jnkll9.jpg",
+      "required": false
+    },
+    "STATS_IMG_URL": {
+      "description": "Your Bot Stats Time Pic tgm link from @Sophia_x_MusicBot on Telegram.",
+      "value": "https://files.catbox.moe/kwud6z.jpg",
+      "required": false
+    },
+    "LOGGER_ID": {
+      "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
+      "value": "-1002392274240",
+      "required": true
+    }
+  },
+  "buildpacks": [
+        {
+            "url": "heroku/python"
+        },
+        {
+            "url": "heroku/nodejs"
+        },
+        {
+            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+        }
+    ],
+    "stack": "container"
+}
