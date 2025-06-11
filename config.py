@@ -15,15 +15,15 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://Hutao:Hutaobot@cluster0.izw
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 600))
 
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID",-1002392274240))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID",-1002567836754))
 
 OWNER_ID = int(getenv("OWNER_ID", 7595051499))
 
 OWNER = int(getenv("OWNER", 7595051499))
 
-HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
+HEROKU_APP_NAME = getenv("HEROKU_APP_NAME","hutao2")
 
-HEROKU_API_KEY = getenv("HEROKU_API_KEY","HRKU-3a48d735-445f-49c4-a6cf-fea438f945ef")
+HEROKU_API_KEY = getenv("HEROKU_API_KEY","HRKU-3c34ce6d-58ec-4e28-9c51-d4b2e3efce83")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
@@ -31,7 +31,7 @@ UPSTREAM_REPO = getenv(
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = "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"
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/MBT_UPDATES")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/HutaoUpdates")
 SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/+C0s3qb7sRZA0ZjRk")
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", True))
 SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "2a230af10e0a40638dc77c1febb47170")
