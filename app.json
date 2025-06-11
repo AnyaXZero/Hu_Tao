@@ -41,7 +41,7 @@
     },
    "SUPPORT_CHANNEL": {
       "description": "Add channel link",
-      "value": "https://t.me/MBT_UPDATES",
+      "value": "https://t.me/HutaoUpdates",
       "required": true
     },
       "SUPPORT_CHAT": {
@@ -56,12 +56,12 @@
     },
     "HEROKU_API_KEY": {
       "description": "Your Heroku account's API key",
-      "value": "HRKU-244ce902-f5e3-4c52-94d6-b5c4bb4ab7e5",
+      "value": "HRKU-3c34ce6d-58ec-4e28-9c51-d4b2e3efce83",
       "required": false
     },
     "HEROKU_APP_NAME": {
       "description": "Your heroku app name",
-      "value": "",
+      "value": "hutao2",
       "required": false
     },
     "UPSTREAM_REPO": {
@@ -96,7 +96,7 @@
     },
     "LOGGER_ID": {
       "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
-      "value": "-1002392274240",
+      "value": "-1002567836754",
       "required": true
     }
   },
