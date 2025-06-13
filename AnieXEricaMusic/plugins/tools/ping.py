@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from AnieXEricaMusic import app
-from AnieXEricaMusic.core.call import AnieXEricaMusic
+from AnieXEricaMusic import AnieXEricaMusic
 from AnieXEricaMusic.utils import bot_sys_stats
 from AnieXEricaMusic.utils.decorators.language import language
 from AnieXEricaMusic.utils.inline import supp_markup
