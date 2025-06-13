@@ -6,7 +6,6 @@ from pyrogram import emoji, enums, filters , Client
 from pyrogram.errors import ChannelPrivate, ChatAdminRequired, RPCError
 from pyrogram.types import Message, User
 from AnieXEricaMusic import app
-from AnieXEricaMusic.database.welcome_db import Greetings
 from AnieXEricaMusic.decorator.chatadmin import can_change_info , chatadmin
 from config import config 
 
