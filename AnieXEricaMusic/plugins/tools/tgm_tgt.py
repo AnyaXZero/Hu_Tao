@@ -9,7 +9,7 @@ class Upload:
     def __init__(self):
         self.catbox_url = "https://catbox.moe/user/api.php"
         self.telegraph = "http://Telegra.ph"
-        self.str= "https://telegra.ph(short_name="UploaderBot")
+        self.str = "https://telegra.ph(short_name="UploaderBot")
 
     def upload_to_catbox(self, file_path):
         with open(file_path, 'rb') as file:
