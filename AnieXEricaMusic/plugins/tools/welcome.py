@@ -6,7 +6,7 @@ from pyrogram import emoji, enums, filters , Client
 from pyrogram.errors import ChannelPrivate, ChatAdminRequired, RPCError
 from pyrogram.types import Message, User
 from AnieXEricaMusic import app
-from config import config
+from confiq.py import config.py
 ChatType = enums.ChatType
 
 async def escape_mentions_using_curly_brackets_wl(
