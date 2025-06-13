@@ -7,7 +7,7 @@ from pyrogram.errors import ChannelPrivate, ChatAdminRequired, RPCError
 from pyrogram.types import Message, User
 from AnieXEricaMusic import app
 from chatadmin import can_change_info , chatadmin
-from config import config 
+from config import config.py
 
 ChatType = enums.ChatType
 
