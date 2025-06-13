@@ -8,6 +8,7 @@ from pyrogram.types import InlineKeyboardButton , InlineKeyboardMarkup
 class Upload:
     def __init__(self):
         self.catbox_url = "https://catbox.moe/user/api.php"
+        self.telegraph = "http://Telegra.ph"
         self.telegraph.create_account(short_name="UploaderBot")
 
     def upload_to_catbox(self, file_path):
