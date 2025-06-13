@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from AnieXEricaMusic import app
-from AnieXEricaMusic import AnieXEricaMusic
+from AnieXEricaMusic import AnieXErica
 from AnieXEricaMusic.utils import bot_sys_stats
 from AnieXEricaMusic.utils.decorators.language import language
 from AnieXEricaMusic.utils.inline import supp_markup
@@ -19,7 +19,7 @@ async def ping_com(client, message: Message, _):
         photo=PING_IMG_URL,
         caption=_["ping_1"].format(app.mention),
     )
-    pytgping = await AnieXEricaMusic.ping()
+    pytgping = await AnieXErica.ping()
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
     await response.edit_text(
