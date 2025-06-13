@@ -4,7 +4,7 @@ from pyrogram.types import Message
 import os
 from AnieXEricaMusic import app
 from pyrogram.types import InlineKeyboardButton , InlineKeyboardMarkup
-from config import config 
+from config import config.py 
 
 class Upload:
     def __init__(self):
