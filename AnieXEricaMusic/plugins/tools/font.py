@@ -1,6 +1,5 @@
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from AnieXEricaMusic import AnieXEricaMusic__init__.py
 from AnieXEricaMusic import app
 from AnieXEricaMusic import app as pbot
 
