@@ -2,7 +2,7 @@ import random
 from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.enums import ParseMode
-from ERISMUSIC import app
+from AnieXEricaMusic import app
 
 @app.on_message(filters.command(["gn", "n", "oodnight", "ood Night", "ood night"], prefixes=["/", "g", "G"]))
 async def goodnight_command_handler(_, message: Message):
