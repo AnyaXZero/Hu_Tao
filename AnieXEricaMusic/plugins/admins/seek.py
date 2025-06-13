@@ -2,7 +2,6 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from AnieXEricaMusic import YouTube, app
-from AnieXEricaMusic import AnieXEricaMusic.core.call
 from AnieXEricaMusic.misc import db
 from AnieXEricaMusic.utils import AdminRightsCheck, seconds_to_min
 from AnieXEricaMusic.utils.inline import close_markup
