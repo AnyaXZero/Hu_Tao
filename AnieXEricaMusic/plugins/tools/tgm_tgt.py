@@ -1,5 +1,5 @@
 import requests
-from AnieXEricaMusic import AnieXEricaMusic 
+from AnieXEricaMusic import AnieXEricaMusic__init__.py 
 from pyrogram import Client, filters
 from pyrogram.types import Message
 import os
