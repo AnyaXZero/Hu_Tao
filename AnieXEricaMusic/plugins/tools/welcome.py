@@ -1,7 +1,7 @@
 from html import escape
 from secrets import choice
 from typing import List
-from AnieXEricaMusic.helper.welcome_helper import *
+from AnieXEricaMusic import *
 from pyrogram import emoji, enums, filters , Client
 from pyrogram.errors import ChannelPrivate, ChatAdminRequired, RPCError
 from pyrogram.types import Message, User
