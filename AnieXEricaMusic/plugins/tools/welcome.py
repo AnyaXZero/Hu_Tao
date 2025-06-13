@@ -9,6 +9,7 @@ from AnieXEricaMusic import app
 from config import config
 
 ChatType = enums.ChatType
+
 async def escape_mentions_using_curly_brackets_wl(
         user: User,
         m: Message,
