@@ -10,9 +10,9 @@ async def mmf(_, message: Message):
     chat_id = message.chat.id
     reply_message = message.reply_to_message
 
-    if len(message.text.split()) < 2:
-        await message.reply_text("**Give me text after /mmf to memify.**")
-        return
+    if not reply_message or not (reply_message.photo or reply_message.document):
+    await message.reply_text("Please reply to an image to memify it.")
+    return
 
     msg = await message.reply_text("❄️")
     text = message.text.split(None, 1)[1]
