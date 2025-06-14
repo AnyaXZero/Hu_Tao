@@ -15,7 +15,7 @@ async def ping_com(client, message: Message, _):
         text=_["ping_1"].format(app.mention),
     )  # Fixed missing parenthesis here
 
-    pytgping = await ping()
+    pytgping = await ping.py()
     UP, CPU, RAM, DISK = await bot_sys_stats()
     resp = (datetime.now() - start).microseconds / 1000
 
