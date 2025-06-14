@@ -4,7 +4,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from AnieXEricaMusic import app
 from AnieXEricaMusic.utils import bot_sys_stats
 from AnieXEricaMusic.utils.decorators.language import language
-from config import BANNED_USERS, SUPPORT_CHANNEL, SUPPORT_CHAT
+from config import BANNED_USERS, SUPPORT_CHANNEL, SUPPORT_GROUP
 
 
 @app.on_message(filters.command(["ping", "status"]) & ~BANNED_USERS)
@@ -24,7 +24,7 @@ async def ping_com(client, message: Message, _):
         reply_markup=InlineKeyboardMarkup([
             [
                 InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=SUPPORT_CHANNEL),
-                InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=SUPPORT_CHAT),
+                InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=SUPPORT_GROUP),
             ],
             [
                 InlineKeyboardButton(text="ᴀᴅᴅ ɪɴ ɢʀᴏᴜᴘ", url=f"https://t.me/{app.username}?startgroup=true"),
@@ -77,7 +77,7 @@ async def awake(_, message: Message):
     BUTTON = [
     [
         InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=config.SUPPORT_CHANNEL),
-        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=config.SUPPORT_CHAT),
+        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=config.SUPPORT_GROUP),
     ],
     [
         InlineKeyboardButton(text="ᴀᴅᴅ ɪɴ ɢʀᴏᴜᴘ", url="https://t.me/{app.username}?startgroup=true"),
