@@ -33,7 +33,7 @@ def get_random_emoji():
     return random.choice(emojis)
 
 
-@app.on_message(filters.command(["gm", "m", "morning", "oodmorning", "ood morning"], prefixes=["/", "g", "G"]))
+@app.on_message(filters.command(["gm", "m", "morning", "oodmorning", "ood morning","ud Morning"], prefixes=["/", "g", "G"]))
 async def goodmorning_command_handler(_, message: Message):
     sender = message.from_user
     sender_firstname = f"<a href='tg://user?id={sender.id}'>{sender.first_name}</a>"
