@@ -201,11 +201,3 @@ def ActualAdminCB(mystic):
         return await mystic(client, CallbackQuery, _)
 
     return wrapper
-    
-    async def can_change_info(client, chat_id, user_id):
-    try:
-        member = await client.get_chat_member(chat_id, user_id)
-        privileges = member.privileges
-        return privileges.can_change_info
-    except Exception:
-        return False
