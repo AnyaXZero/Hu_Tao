@@ -6,6 +6,7 @@ from pyrogram import emoji, enums, filters , Client
 from pyrogram.errors import ChannelPrivate, ChatAdminRequired, RPCError
 from pyrogram.types import Message, User
 from AnieXEricaMusic import app
+from AnieXEricaMusic.utils.decorators import can_change_info as member_can_change_info
 import config
 
 ChatType = enums.ChatType
