@@ -52,7 +52,7 @@ async def goodmorning_command_handler(_, message: Message):
     goodmorning_message = random.choice(goodmorning_phrases)
     
     await message.reply_text(
-        f"{\n\n} ᴡɪsʜɪɴɢ ʏᴏᴜ ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ!\n{sender_firstname} {goodmorning_message} {emoji}.",
+        f"ᴡɪsʜɪɴɢ ʏᴏᴜ ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ!\n{sender_firstname} {goodmorning_message} {emoji}.",
         parse_mode=ParseMode.HTML
     )
 
