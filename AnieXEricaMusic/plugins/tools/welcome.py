@@ -47,7 +47,7 @@ async def escape_mentions_using_curly_brackets_wl(
 
 
 @app.on_message(filters.command("cleanwelcome" , config.COMMAND_PREFIXES))
-@can_change_info
+@member.can_change_info
 async def cleanwlcm(_, m: Message):
     db = Greetings(m.chat.id)
     status = db.get_current_cleanwelcome_settings()
@@ -69,7 +69,7 @@ async def cleanwlcm(_, m: Message):
 
 
 @app.on_message(filters.command("cleangoodbye" , config.COMMAND_PREFIXES))
-@can_change_info
+@member.can_change_info
 async def cleangdbye(_, m: Message):
     db = Greetings(m.chat.id)
     status = db.get_current_cleangoodbye_settings()
@@ -91,7 +91,7 @@ async def cleangdbye(_, m: Message):
 
 
 @app.on_message(filters.command("setwelcome" , config.COMMAND_PREFIXES))
-@can_change_info
+@member.can_change_info
 async def save_wlcm(_, m: Message):
     db = Greetings(m.chat.id)
     if m and not m.from_user:
@@ -129,7 +129,7 @@ async def save_wlcm(_, m: Message):
 
 
 @app.on_message(filters.command("setgoodbye" , config.COMMAND_PREFIXES))
-@can_change_info
+@member.can_change_info
 async def save_gdbye(_, m: Message):
     db = Greetings(m.chat.id)
     if m and not m.from_user:
@@ -168,7 +168,7 @@ async def save_gdbye(_, m: Message):
 
 
 @app.on_message(filters.command("resetgoodbye" , config.COMMAND_PREFIXES))
-@can_change_info
+@member.can_change_info
 async def resetgb(_, m: Message):
     db = Greetings(m.chat.id)
     if m and not m.from_user:
@@ -180,7 +180,7 @@ async def resetgb(_, m: Message):
 
 
 @app.on_message(filters.command("resetwelcome"))
-@can_change_info
+@member.can_change_info
 async def resetwlcm(_, m: Message):
     db = Greetings(m.chat.id)
     if m and not m.from_user:
