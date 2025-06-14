@@ -1,18 +1,12 @@
 from pyrogram import filters
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import Message
 from AnieXEricaMusic import app
 
-
 @app.on_message(filters.new_chat_members)
-async def welcome(client, message: Message):
+async def welcome(_, message: Message):
     for member in message.new_chat_members:
-        name = member.mention if not member.is_bot else f"🤖 {member.first_name}"
-
+        if member.is_bot:
+            continue  # skip bots
         await message.reply_text(
-            text=f"ʜᴇʏ ᴡᴇʟᴄᴏᴍᴇ 🌷 {name} to **{message.chat.title}**!\nʜᴀᴠᴇ ᴀ ɢʀᴇᴀᴛ ᴛɪᴍᴇ ʜᴇʀᴇ 🦋✨",
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("ʜᴇʟᴩ", callback_data="ʜᴇʟᴩ")],
-                ]
-            )
+            f"ʜᴇʏ ᴡᴇʟᴄᴏᴍᴇ, {member.mention}!\nᴡᴇ'ʀᴇ ɢʟᴀᴅ ᴛᴏ ʜᴀᴠᴇ ʏᴏᴜ ʜᴇʀᴇ 🎉"
         )
