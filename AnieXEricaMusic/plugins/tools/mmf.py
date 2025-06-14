@@ -11,8 +11,8 @@ async def mmf(_, message: Message):
     reply_message = message.reply_to_message
 
     if not reply_message or not (reply_message.photo or reply_message.document):
-    await message.reply_text("Please reply to an image to memify it.")
-    return
+       await message.reply_text("Please reply to an image to memify it.")
+       return
 
     msg = await message.reply_text("❄️")
     text = message.text.split(None, 1)[1]
