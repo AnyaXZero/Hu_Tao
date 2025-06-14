@@ -34,4 +34,4 @@ wget
 blackpink
 Telegraph
 config
-fonts
+
