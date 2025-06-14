@@ -11,3 +11,9 @@ def can_change_info(func):
             return await func(client, message)
         return await message.reply_text("You need to be an admin to use this command.")
     return wrapper
+   
+    @Client.on_message(filters.command(["setwelcome"]) & filters.group)
+@chatadmin
+@member_can_change_info
+async def set_welcome(client, message):
+    ...
