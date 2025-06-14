@@ -1,3 +1,4 @@
+from AnieXEricaMusic.plugins.tools.fonts_base import Fonts
 class Fonts:
     @staticmethod
     def sans(text): return "𝙎𝙖𝙣𝙨 " + text
