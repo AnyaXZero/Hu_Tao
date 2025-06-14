@@ -29,9 +29,9 @@ async def ping(_, message: Message):
         " ɪ'ᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ 🦋✨\n"
         
         "🏓 ᴩᴏɴɢ!\n"
-        f"➤ ᴩɪɴɢ: {ping_ms}ms\n"
-        f"➤ ᴩʏᴛʜᴏɴ: {python_version}\n"
-        f"➤ ᴩʏʀᴏɢʀᴀᴍ: {pyrogram_version}\n"
+        f"➤ ᴩɪɴɢ : {ping_ms}ms\n"
+        f"➤ ᴩʏᴛʜᴏɴ : {python_version}\n"
+        f"➤ ᴩʏʀᴏɢʀᴀᴍ : {pyrogram_version}\n"
         f"➤ ᴜᴩᴛɪᴍᴇ : {uptime}"
     )
 
