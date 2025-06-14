@@ -35,4 +35,3 @@ blackpink
 Telegraph
 config
 fonts
-ping
