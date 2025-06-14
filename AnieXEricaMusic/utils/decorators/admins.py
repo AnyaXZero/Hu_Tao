@@ -201,3 +201,6 @@ def ActualAdminCB(mystic):
         return await mystic(client, CallbackQuery, _)
 
     return wrapper
+    
+    def can_change_info(...):
+    ...
