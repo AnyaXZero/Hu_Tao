@@ -33,5 +33,5 @@ pyromod
 wget
 blackpink
 Telegraph
-config
+
 
