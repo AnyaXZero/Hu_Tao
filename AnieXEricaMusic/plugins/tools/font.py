@@ -1,7 +1,7 @@
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from AnieXEricaMusic import app
-import Fonts
+import Font
 from AnieXEricaMusic import app as pbot
 
 @app.on_message(filters.command(["font", "fonts"]))
@@ -65,45 +65,45 @@ async def style(c, m):
     
     # Map styles to their respective font class methods
     style_map = {
-        "typewriter": Fonts.typewriter,
-        "outline": Fonts.outline,
-        "serif": Fonts.serief,
-        "bold_cool": Fonts.bold_cool,
-        "cool": Fonts.cool,
-        "small_cap": Fonts.smallcap,
-        "script": Fonts.script,
-        "script_bolt": Fonts.bold_script,
-        "tiny": Fonts.tiny,
-        "comic": Fonts.comic,
-        "sans": Fonts.san,
-        "slant_sans": Fonts.slant_san,
-        "slant": Fonts.slant,
-        "sim": Fonts.sim,
-        "circles": Fonts.circles,
-        "circle_dark": Fonts.dark_circle,
-        "gothic": Fonts.gothic,
-        "gothic_bolt": Fonts.bold_gothic,
-        "cloud": Fonts.cloud,
-        "happy": Fonts.happy,
-        "sad": Fonts.sad,
-        "special": Fonts.special,
-        "squares": Fonts.square,
-        "squares_bold": Fonts.dark_square,
-        "andalucia": Fonts.andalucia,
-        "manga": Fonts.manga,
-        "stinky": Fonts.stinky,
-        "bubbles": Fonts.bubbles,
-        "underline": Fonts.underline,
-        "ladybug": Fonts.ladybug,
-        "rays": Fonts.rays,
-        "birds": Fonts.birds,
-        "slash": Fonts.slash,
-        "stop": Fonts.stop,
-        "skyline": Fonts.skyline,
-        "arrows": Fonts.arrows,
-        "qvnes": Fonts.rvnes,
-        "strike": Fonts.strike,
-        "frozen": Fonts.frozen
+        "typewriter": Font.typewriter,
+        "outline": Font.outline,
+        "serif": Font.serief,
+        "bold_cool": Font.bold_cool,
+        "cool": Font.cool,
+        "small_cap": Font.smallcap,
+        "script": Font.script,
+        "script_bolt": Font.bold_script,
+        "tiny": Font.tiny,
+        "comic": Font.comic,
+        "sans": Font.san,
+        "slant_sans": Font.slant_san,
+        "slant": Font.slant,
+        "sim": Font.sim,
+        "circles": Font.circles,
+        "circle_dark": Font.dark_circle,
+        "gothic": Font.gothic,
+        "gothic_bolt": Font.bold_gothic,
+        "cloud": Font.cloud,
+        "happy": Font.happy,
+        "sad": Font.sad,
+        "special": Font.special,
+        "squares": Font.square,
+        "squares_bold": Font.dark_square,
+        "andalucia": Font.andalucia,
+        "manga": Font.manga,
+        "stinky": Font.stinky,
+        "bubbles": Font.bubbles,
+        "underline": Font.underline,
+        "ladybug": Font.ladybug,
+        "rays": Font.rays,
+        "birds": Font.birds,
+        "slash": Font.slash,
+        "stop": Font.stop,
+        "skyline": Font.skyline,
+        "arrows": Font.arrows,
+        "qvnes": Font.rvnes,
+        "strike": Font.strike,
+        "frozen": Font.frozen
     }
     
     cls = style_map.get(style)
