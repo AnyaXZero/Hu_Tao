@@ -202,9 +202,5 @@ def ActualAdminCB(mystic):
 
     return wrapper
     
-    async def can_change_info(client, chat_id, user_id):
-    try:
-        member = await client.get_chat_member(chat_id, user_id)
-        return member.privileges.can_change_info
-    except:
-        return False
+        if not await can_change_info(client, message.chat.id, message.from_user.id):
+           return await message.reply_text("❌ You don't have permission to change chat info.")
