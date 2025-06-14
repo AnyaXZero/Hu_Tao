@@ -4,7 +4,7 @@ from pyrogram.types import Message
 from pyrogram.enums import ParseMode
 from AnieXEricaMusic import app
 
-@app.on_message(filters.command(["gn", "n", "oodnight", "ood Night", "ood night"], prefixes=["/", "g", "G"]))
+@app.on_message(filters.command(["gn", "n", "oodnight", "ood Night", "ood night","ud night"], prefixes=["/", "g", "G"]))
 async def goodnight_command_handler(_, message: Message):
     sender = message.from_user
     sender_firstname = f"<a href='tg://user?id={sender.id}'>{sender.first_name}</a>"
@@ -21,14 +21,14 @@ async def goodnight_command_handler(_, message: Message):
     goodnight_message = random.choice(goodnight_phrases)
     
     await message.reply_text(
-        f"ɢᴏᴏᴅɴɪɢʜᴛ! {sender_firstname} {goodnight_message} {emoji}.",
+        f"ɢᴏᴏᴅɴɪɢʜᴛ! ꜱᴡᴇᴇᴛ ᴅʀᴇᴀᴍꜱ {sender_firstname} {goodnight_message} {emoji}.",
         parse_mode=ParseMode.HTML
     )
 
 
 def get_random_emoji():
     emojis = [
-        "😴", "😪", "👀", "❤️", "✨", "🐼", "💤","💕"
+        "😴", "😪", "👀", "❤️", "✨", "🐼", "💤","💖"
     ]
     return random.choice(emojis)
 
@@ -39,7 +39,7 @@ async def goodmorning_command_handler(_, message: Message):
     sender_firstname = f"<a href='tg://user?id={sender.id}'>{sender.first_name}</a>"
     emoji = get_random_emoji_for_morning()
     
-    bot_private_link = f"<a href='tg://user?id={app.me.id}'>suzune"
+    bot_private_link = f"<a href='tg://user?id={app.me.id}'>𝐇ᴜ ᴛᴀᴏ 🍹"
     
     goodmorning_phrases = [
         "ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ",
@@ -52,13 +52,13 @@ async def goodmorning_command_handler(_, message: Message):
     goodmorning_message = random.choice(goodmorning_phrases)
     
     await message.reply_text(
-        f"ᴡɪsʜɪɴɢ ʏᴏᴜ ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ!\n{sender_firstname} {goodmorning_message} {emoji}.",
+        f"{bot_private_link} ᴡɪsʜɪɴɢ ʏᴏᴜ ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ!\n{sender_firstname} {goodmorning_message} {emoji}.",
         parse_mode=ParseMode.HTML
     )
 
 
 def get_random_emoji_for_morning():
     emojis = [
-        "😊", "❤️", "👀", "🕊️", "🌄", "💫", "✨", "💞","💖"
+        "😊", "❤️", "👀", "🕊️", "🌄", "💫", "✨", "💞","🦋"
     ]
     return random.choice(emojis)
