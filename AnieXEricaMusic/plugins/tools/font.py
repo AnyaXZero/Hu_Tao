@@ -39,9 +39,11 @@ def doublestruck(text):
                     else chr(0x1D552 + ord(c) - 97) if 'a' <= c <= 'z' else c for c in text])    
     
 def serif(text):
-    normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    bubble = "𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑄𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁" + "𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑄𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁"
-   return ''.join([bubble[normal.index(c)] if c in normal else c for c in text])
+    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    serif_chars = "𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑄𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁" + \
+                  "𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛"
+    table = str.maketrans(normal, serif_chars)
+    return text.translate(table)
 
 def wide(text):    
     return ' '.join(c for c in text)    
