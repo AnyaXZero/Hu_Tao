@@ -47,9 +47,9 @@ async def drawText(image_path, text):
 
     # Font path (update it to actual path if different)
     if os.name == "nt":
-        fnt_path = "mmf.ttf"
+        fnt_path = "font.ttf"
     else:
-        fnt_path = "./AnieXEricaMusic/assets/default.ttf"
+        fnt_path = "./AnieXEricaMusic/assets/font.ttf"
 
     try:
         m_font = ImageFont.truetype(fnt_path, int((70 / 640) * i_width))
