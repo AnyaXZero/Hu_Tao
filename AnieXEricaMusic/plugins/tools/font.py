@@ -38,13 +38,12 @@ def doublestruck(text):
     return ''.join([chr(0x1D538 + ord(c) - 65) if 'A' <= c <= 'Z'    
                     else chr(0x1D552 + ord(c) - 97) if 'a' <= c <= 'z' else c for c in text])    
     
-def serif(text):
-    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-    serif_chars = "𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑄𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁" + \
-                  "𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛"
-    table = str.maketrans(normal, serif_chars)
-    return text.translate(table)
-
+def sans(text):    
+    return ''.join(['𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹'[ord(c)-65]    
+                    if 'A' <= c <= 'Z' else    
+                    '𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓'[ord(c)-97]    
+                    if 'a' <= c <= 'z' else c for c in text])    
+    
 def wide(text):    
     return ' '.join(c for c in text)    
     
