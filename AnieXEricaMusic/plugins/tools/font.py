@@ -1,3 +1,4 @@
+
 from pyrogram import  filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -38,60 +39,61 @@ async def style_buttons(c, m, cb=False):
             InlineKeyboardButton("𝕲𝖔𝖙𝖍𝖎𝖈", callback_data="style+gothic_bolt"),
         ],
         [
-            InlineKeyboardButton("C‌‌l‌‌o‌‌u‌‌d‌‌s‌‌", callback_data="style+cloud"),
-            InlineKeyboardButton("H‌‌a‌‌p‌‌p‌‌y‌‌", callback_data="style+happy"),
-            InlineKeyboardButton("S‌‌a‌‌d‌‌", callback_data="style+sad"),
+            InlineKeyboardButton("C͜͡l͜͡o͜͡u͜͡d͜͡s͜͡", callback_data="style+cloud"),
+            InlineKeyboardButton("H̆̈ă̈p̆̈p̆̈y̆̈", callback_data="style+happy"),
+            InlineKeyboardButton("S̑̈ȃ̈d̑̈", callback_data="style+sad"),
         ],
         [InlineKeyboardButton ("ᴄʟᴏsᴇ",callback_data="close_reply"),InlineKeyboardButton ("ɴᴇxᴛ ➻", callback_data="nxt")],
     ]
     if not cb:
         await m.reply_text(
-            f"{text}", reply_markup=InlineKeyboardMarkup(buttons), quote=True
+            f"`{text}`", reply_markup=InlineKeyboardMarkup(buttons), quote=True
         )
     else:
         await m.answer()
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
-        @app.on_callback_query(filters.regex("^nxt"))
 
-        async def nxt(c, m):
+
+@app.on_callback_query(filters.regex("^nxt"))
+async def nxt(c, m):
     if m.data == "nxt":
         buttons = [
             [
                 InlineKeyboardButton("🇸 🇵 🇪 🇨 🇮 🇦 🇱 ", callback_data="style+special"),
                 InlineKeyboardButton("🅂🅀🅄🄰🅁🄴🅂", callback_data="style+squares"),
                 InlineKeyboardButton(
-                    "🆂︎🆀︎🆄︎🅰️︎🆁︎🅴︎🆂︎", callback_data="style+squares_bold"
+                    "🆂︎🆀︎🆄︎🅰︎🆁︎🅴︎🆂︎", callback_data="style+squares_bold"
                 ),
             ],
             [
                 InlineKeyboardButton("ꪖꪀᦔꪖꪶꪊᥴ𝓲ꪖ", callback_data="style+andalucia"),
                 InlineKeyboardButton("爪卂几ᘜ卂", callback_data="style+manga"),
-                InlineKeyboardButton("S‌t‌i‌n‌k‌y‌", callback_data="style+stinky"),
+                InlineKeyboardButton("S̾t̾i̾n̾k̾y̾", callback_data="style+stinky"),
             ],
             [
                 InlineKeyboardButton(
-                    "B‌‌u‌‌b‌‌b‌‌l‌‌e‌‌s‌‌", callback_data="style+bubbles"
+                    "B̥ͦu̥ͦb̥ͦb̥ͦl̥ͦe̥ͦs̥ͦ", callback_data="style+bubbles"
                 ),
                 InlineKeyboardButton(
-                    "U‌n‌d‌e‌r‌l‌i‌n‌e‌", callback_data="style+underline"
+                    "U͟n͟d͟e͟r͟l͟i͟n͟e͟", callback_data="style+underline"
                 ),
                 InlineKeyboardButton("꒒ꍏꀷꌩꌃꀎꁅ", callback_data="style+ladybug"),
             ],
             [
                 InlineKeyboardButton("R҉a҉y҉s҉", callback_data="style+rays"),
                 InlineKeyboardButton("B҈i҈r҈d҈s҈", callback_data="style+birds"),
-                InlineKeyboardButton("S‌l‌a‌s‌h‌", callback_data="style+slash"),
+                InlineKeyboardButton("S̸l̸a̸s̸h̸", callback_data="style+slash"),
             ],
             [
                 InlineKeyboardButton("s⃠t⃠o⃠p⃠", callback_data="style+stop"),
                 InlineKeyboardButton(
-                    "S‌‌k‌‌y‌‌l‌‌i‌‌n‌‌e‌‌", callback_data="style+skyline"
+                    "S̺͆k̺͆y̺͆l̺͆i̺͆n̺͆e̺͆", callback_data="style+skyline"
                 ),
-                InlineKeyboardButton("A‌r‌r‌o‌w‌s‌", callback_data="style+arrows"),
+                InlineKeyboardButton("A͎r͎r͎o͎w͎s͎", callback_data="style+arrows"),
             ],
             [
                 InlineKeyboardButton("ዪሀክቿነ", callback_data="style+qvnes"),
-                InlineKeyboardButton("S‌t‌r‌i‌k‌e‌", callback_data="style+strike"),
+                InlineKeyboardButton("S̶t̶r̶i̶k̶e̶", callback_data="style+strike"),
                 InlineKeyboardButton("F༙r༙o༙z༙e༙n༙", callback_data="style+frozen"),
             ],
             [InlineKeyboardButton ("ᴄʟᴏsᴇ",callback_data="close_reply"),InlineKeyboardButton ("ʙᴀᴄᴋ", callback_data="nxt+0")],
@@ -100,7 +102,9 @@ async def style_buttons(c, m, cb=False):
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
     else:
         await style_buttons(c, m, cb=True)
-        @app.on_callback_query(filters.regex("^style"))
+
+
+@app.on_callback_query(filters.regex("^style"))
 async def style(c, m):
     await m.answer()
     cmd,style = m.data.split('+')
@@ -190,9 +194,9 @@ async def style(c, m):
         pass
 
 
-help = """
+__help__ = """
 
  ❍ /fonts <text> *:* ᴄᴏɴᴠᴇʀᴛs sɪᴍᴩʟᴇ ᴛᴇxᴛ ᴛᴏ ʙᴇᴀᴜᴛɪғᴜʟ ᴛᴇxᴛ ʙʏ ᴄʜᴀɴɢɪɴɢ ɪᴛ's ғᴏɴᴛ.
  """
 
-mod_name = "Fᴏɴᴛ"
+__mod_name__ = "Fᴏɴᴛ"
