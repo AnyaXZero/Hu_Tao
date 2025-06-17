@@ -52,7 +52,8 @@ async def style_buttons(c, m, cb=False):
         await m.answer()
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
         @app.on_callback_query(filters.regex("^nxt"))
-async def nxt(c, m):
+
+        async def nxt(c, m):
     if m.data == "nxt":
         buttons = [
             [
