@@ -66,7 +66,7 @@
     },
     "UPSTREAM_REPO": {
       "description": "If you dont know this, Leave as it is",
-      "value": "https://github.com/SONGSONG220/AnieXEricaMusic",
+      "value": "https://github.com/AnyaXZero/Hu_Tao",
       "required": false
     },
     "UPSTREAM_BRANCH": {
