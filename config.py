@@ -29,7 +29,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY","HRKU-AA5DN1qAs5A9A42MDd_gRIvcP5e15YTpW
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/Zfini/Adonis",
+    "https://github.com/AnyaXZero/Hu_Tao",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = "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"
