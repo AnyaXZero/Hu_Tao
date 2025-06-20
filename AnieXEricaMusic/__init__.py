@@ -25,3 +25,9 @@ Spotify = SpotifyAPI()
 Resso = RessoAPI()
 Telegram = TeleAPI()
 YouTube = YouTubeAPI()
+
+# Constants
+JOIN_UPDATE_GROUP = 70
+FILTERS_GROUP = 70
+parse_mode = "HTML"
+
