@@ -1,3 +1,4 @@
+
 """
 -------------------------------------------------------------------------
 Single‑user moderation commands with complete edge‑case handling.
@@ -36,16 +37,16 @@ from AnieXEricaMusic.utils.permissions import extract_user_and_reason, mention, 
 _DEF_MUTE_PERMS = ChatPermissions()
 
 _USAGES = {
-    "ban":    "/ban @user [reason] — or reply with /ban [reason]",
-    "unban":  "/unban @user [reason] — or reply with /unban [reason]",
-    "mute":   "/mute @user [reason] — or reply with /mute [reason]",
-    "unmute": "/unmute @user [reason] — or reply with /unmute [reason]",
-    "tmute":  "/tmute @user <time> [reason] — or reply with /tmute <time> [reason]",
-    "kick":   "/kick @user [reason] — or reply with /kick [reason]",
-    "dban":   "Reply to a user's message with /dban [reason]",
-    "sban":   "/sban @user — or reply with /sban",
-    "tban":   "/tban @user <time> [reason] — or reply with /tban <time> [reason]",
-    "kickme": "/kickme — kick yourself from the group",
+    "ban":    "𝖴𝗇𝖺𝖻𝗅𝖾 𝗍𝗈 𝖿𝗂𝗇𝖽 𝗍𝗁𝖾 𝗌𝗉𝖾𝖼𝗂𝖿𝗂𝖾𝖽 𝗎𝗌𝖾𝗋. 𝖯𝗅𝖾𝖺𝗌𝖾 𝗆𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝗍𝗁𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾/𝗂𝖽 𝗂𝗌 𝗏𝖺𝗅𝗂𝖽 𝗈𝗋 𝗋𝖾𝗉𝗅𝗒 𝗍𝗈 𝖺 𝗆𝖾𝗌𝗌𝖺𝗀𝖾.",
+    "unban":  "𝖴𝗇𝖺𝖻𝗅𝖾 𝗍𝗈 𝖿𝗂𝗇𝖽 𝗍𝗁𝖾 𝗌𝗉𝖾𝖼𝗂𝖿𝗂𝖾𝖽 𝗎𝗌𝖾𝗋. 𝖯𝗅𝖾𝖺𝗌𝖾 𝗆𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝗍𝗁𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾/𝗂𝖽 𝗂𝗌 𝗏𝖺𝗅𝗂𝖽 𝗈𝗋 𝗋𝖾𝗉𝗅𝗒 𝗍𝗈 𝖺 𝗆𝖾𝗌𝗌𝖺𝗀𝖾.",
+    "mute":   "𝖴𝗇𝖺𝖻𝗅𝖾 𝗍𝗈 𝖿𝗂𝗇𝖽 𝗍𝗁𝖾 𝗌𝗉𝖾𝖼𝗂𝖿𝗂𝖾𝖽 𝗎𝗌𝖾𝗋. 𝖯𝗅𝖾𝖺𝗌𝖾 𝗆𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝗍𝗁𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾/𝗂𝖽 𝗂𝗌 𝗏𝖺𝗅𝗂𝖽 𝗈𝗋 𝗋𝖾𝗉𝗅𝗒 𝗍𝗈 𝖺 𝗆𝖾𝗌𝗌𝖺𝗀𝖾.",
+    "unmute": "𝖴𝗇𝖺𝖻𝗅𝖾 𝗍𝗈 𝖿𝗂𝗇𝖽 𝗍𝗁𝖾 𝗌𝗉𝖾𝖼𝗂𝖿𝗂𝖾𝖽 𝗎𝗌𝖾𝗋. 𝖯𝗅𝖾𝖺𝗌𝖾 𝗆𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝗍𝗁𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾/𝗂𝖽 𝗂𝗌 𝗏𝖺𝗅𝗂𝖽 𝗈𝗋 𝗋𝖾𝗉𝗅𝗒 𝗍𝗈 𝖺 𝗆𝖾𝗌𝗌𝖺𝗀𝖾.]",
+    "tmute":  "𝖴𝗇𝖺𝖻𝗅𝖾 𝗍𝗈 𝖿𝗂𝗇𝖽 𝗍𝗁𝖾 𝗌𝗉𝖾𝖼𝗂𝖿𝗂𝖾𝖽 𝗎𝗌𝖾𝗋. 𝖯𝗅𝖾𝖺𝗌𝖾 𝗆𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝗍𝗁𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾/𝗂𝖽 𝗂𝗌 𝗏𝖺𝗅𝗂𝖽 𝗈𝗋 𝗋𝖾𝗉𝗅𝗒 𝗍𝗈 𝖺 𝗆𝖾𝗌𝗌𝖺𝗀𝖾.",
+    "kick":   "𝖴𝗇𝖺𝖻𝗅𝖾 𝗍𝗈 𝖿𝗂𝗇𝖽 𝗍𝗁𝖾 𝗌𝗉𝖾𝖼𝗂𝖿𝗂𝖾𝖽 𝗎𝗌𝖾𝗋. 𝖯𝗅𝖾𝖺𝗌𝖾 𝗆𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝗍𝗁𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾/𝗂𝖽 𝗂𝗌 𝗏𝖺𝗅𝗂𝖽 𝗈𝗋 𝗋𝖾𝗉𝗅𝗒 𝗍𝗈 𝖺 𝗆𝖾𝗌𝗌𝖺𝗀𝖾.",
+    "dban":   "𝖴𝗇𝖺𝖻𝗅𝖾 𝗍𝗈 𝖿𝗂𝗇𝖽 𝗍𝗁𝖾 𝗌𝗉𝖾𝖼𝗂𝖿𝗂𝖾𝖽 𝗎𝗌𝖾𝗋. 𝖯𝗅𝖾𝖺𝗌𝖾 𝗆𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝗍𝗁𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾/𝗂𝖽 𝗂𝗌 𝗏𝖺𝗅𝗂𝖽 𝗈𝗋 𝗋𝖾𝗉𝗅𝗒 𝗍𝗈 𝖺 𝗆𝖾𝗌𝗌𝖺𝗀𝖾.",
+    "sban":   "𝖴𝗇𝖺𝖻𝗅𝖾 𝗍𝗈 𝖿𝗂𝗇𝖽 𝗍𝗁𝖾 𝗌𝗉𝖾𝖼𝗂𝖿𝗂𝖾𝖽 𝗎𝗌𝖾𝗋. 𝖯𝗅𝖾𝖺𝗌𝖾 𝗆𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝗍𝗁𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾/𝗂𝖽 𝗂𝗌 𝗏𝖺𝗅𝗂𝖽 𝗈𝗋 𝗋𝖾𝗉𝗅𝗒 𝗍𝗈 𝖺 𝗆𝖾𝗌𝗌𝖺𝗀𝖾.",
+    "tban":   "𝖴𝗇𝖺𝖻𝗅𝖾 𝗍𝗈 𝖿𝗂𝗇𝖽 𝗍𝗁𝖾 𝗌𝗉𝖾𝖼𝗂𝖿𝗂𝖾𝖽 𝗎𝗌𝖾𝗋. 𝖯𝗅𝖾𝖺𝗌𝖾 𝗆𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝗍𝗁𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾/𝗂𝖽 𝗂𝗌 𝗏𝖺𝗅𝗂𝖽 𝗈𝗋 𝗋𝖾𝗉𝗅𝗒 𝗍𝗈 𝖺 𝗆𝖾𝗌𝗌𝖺𝗀𝖾.",
+    "kickme": "𝖴𝗇𝖺𝖻𝗅𝖾 𝗍𝗈 𝖿𝗂𝗇𝖽 𝗍𝗁𝖾 𝗌𝗉𝖾𝖼𝗂𝖿𝗂𝖾𝖽 𝗎𝗌𝖾𝗋. 𝖯𝗅𝖾𝖺𝗌𝖾 𝗆𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝗍𝗁𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾/𝗂𝖽 𝗂𝗌 𝗏𝖺𝗅𝗂𝖽 𝗈𝗋 𝗋𝖾𝗉𝗅𝗒 𝗍𝗈 𝖺 𝗆𝖾𝗌𝗌𝖺𝗀𝖾.",
 }
 
 def _usage(cmd: str) -> str:
@@ -57,8 +58,6 @@ def _format_success(action: str, msg: Message, uid: int, name: str, reason: Opti
     admin_m = mention(msg.from_user.id, msg.from_user.first_name)
     text = (
         f"» {action} ᴀ ᴜsᴇʀ ɪɴ {chat}\n"
-        f" ᴜsᴇʀ  : {user_m}\n"
-        f" ᴀᴅᴍɪɴ : {admin_m}"
     )
     if reason:
         text += f"\nReason: {reason}"
@@ -90,9 +89,9 @@ async def ban_cmd(client, message: Message):
         await client.ban_chat_member(message.chat.id, uid)
         await message.reply_text(_format_success("Ban", message, uid, name, reason))
     except ChatAdminRequired:
-        await message.reply_text("I need ban permissions.")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
     except UserAdminInvalid:
-        await message.reply_text("I cannot ban an admin.")
+        await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
 
 # ────────────────────────────────────────────────────────────
 # /unban
@@ -114,7 +113,7 @@ async def unban_cmd(client, message: Message):
         await client.unban_chat_member(message.chat.id, uid)
         await message.reply_text(_format_success("Unban", message, uid, name, reason))
     except ChatAdminRequired:
-        await message.reply_text("I need unban permissions.")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
 
 # ────────────────────────────────────────────────────────────
 # /mute
@@ -136,9 +135,9 @@ async def mute_cmd(client, message: Message):
         await client.restrict_chat_member(message.chat.id, uid, _DEF_MUTE_PERMS)
         await message.reply_text(_format_success("Mute", message, uid, name, reason))
     except ChatAdminRequired:
-        await message.reply_text("I need mute permissions.")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
     except UserAdminInvalid:
-        await message.reply_text("I cannot mute an admin.")
+        await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
 
 # ────────────────────────────────────────────────────────────
 # /unmute
@@ -168,7 +167,7 @@ async def unmute_cmd(client, message: Message):
         await client.restrict_chat_member(message.chat.id, uid, perms)
         await message.reply_text(_format_success("Unmute", message, uid, name, reason))
     except ChatAdminRequired:
-        await message.reply_text("I need unmute permissions.")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
 
 # ────────────────────────────────────────────────────────────
 # /tmute
@@ -200,9 +199,9 @@ async def tmute_cmd(client, message: Message):
         await client.restrict_chat_member(message.chat.id, user.id, _DEF_MUTE_PERMS, until_date=until)
         await message.reply_text(_format_success(f"Mute for {time_arg}", message, user.id, user.first_name, reason))
     except ChatAdminRequired:
-        await message.reply_text("I need mute permissions.")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
     except UserAdminInvalid:
-        await message.reply_text("I cannot mute an admin.")
+        await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
 
 # ────────────────────────────────────────────────────────────
 # /kick
@@ -222,9 +221,9 @@ async def kick_cmd(client, message: Message):
         await client.unban_chat_member(message.chat.id, uid)
         await message.reply_text(_format_success("Kick", message, uid, name, reason))
     except ChatAdminRequired:
-        await message.reply_text("I need ban permissions.")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
     except UserAdminInvalid:
-        await message.reply_text("I cannot kick an admin.")
+        await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
 
 # ────────────────────────────────────────────────────────────
 # /dban
@@ -262,9 +261,9 @@ async def sban_cmd(client, message: Message):
         await client.ban_chat_member(message.chat.id, uid)
         await message.delete()  # silent
     except ChatAdminRequired:
-        await message.reply_text("I need ban permissions.")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
     except UserAdminInvalid:
-        await message.reply_text("I cannot ban an admin.")
+        await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
 
 # ────────────────────────────────────────────────────────────
 # /kickme
@@ -277,9 +276,9 @@ async def kickme_cmd(client, message: Message):
         await client.ban_chat_member(message.chat.id, message.from_user.id)
         await asyncio.sleep(3)
         await client.unban_chat_member(message.chat.id, message.from_user.id)
-        await message.reply_text("Kicked so hard, your ancestors felt it. 👟💥")
+        await message.reply_text("ᴛʜɪs ɢʀᴏᴜᴘ ᴅᴏɴᴛ ᴅᴇsᴇʀᴠᴇ ʏᴏᴜ 🥺")
     except ChatAdminRequired:
-        await message.reply_text("I need ban permissions.")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
 
 # ────────────────────────────────────────────────────────────
 # /tban
@@ -311,6 +310,6 @@ async def tban_cmd(client, message: Message):
         await client.ban_chat_member(message.chat.id, user.id, until_date=until)
         await message.reply_text(_format_success(f"Ban for {time_arg}", message, user.id, user.first_name, reason))
     except ChatAdminRequired:
-        await message.reply_text("I need ban permissions.")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
     except UserAdminInvalid:
-        await message.reply_text("I cannot ban an admin.")
+        await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
