@@ -16,10 +16,10 @@ def divide_chunks(l: list, n: int = 100):
 @app.on_message(filters.command("purge") & admin_filter)
 async def purge(app: Client, msg: Message):
     if msg.chat.type != ChatType.SUPERGROUP:
-        return await msg.reply("**ɪ ᴄᴀɴ'ᴛ ᴘᴜʀɢᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴀ ʙᴀsɪᴄ ɢʀᴏᴜᴘ. ᴘʟᴇᴀsᴇ ᴄᴏɴᴠᴇʀᴛ ɪᴛ ᴛᴏ ᴀ sᴜᴘᴇʀɢʀᴏᴜᴘ.**")
+        return await msg.reply("ɪ ᴄᴀɴ'ᴛ ᴘᴜʀɢᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴀ ʙᴀsɪᴄ ɢʀᴏᴜᴘ. ᴘʟᴇᴀsᴇ ᴄᴏɴᴠᴇʀᴛ ɪᴛ ᴛᴏ ᴀ sᴜᴘᴇʀɢʀᴏᴜᴘ.")
 
     if not msg.reply_to_message:
-        return await msg.reply("**ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ sᴛᴀʀᴛ ᴘᴜʀɢᴇ!**")
+        return await msg.reply("ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ sᴛᴀʀᴛ ᴘᴜʀɢᴇ!")
 
     message_ids = list(range(msg.reply_to_message.id, msg.id))
     m_list = list(divide_chunks(message_ids))
@@ -33,22 +33,22 @@ async def purge(app: Client, msg: Message):
                 await asyncio.sleep(e.value)
         await msg.delete()
         count = len(message_ids)
-        confirm = await msg.reply(f"✅ | **ᴅᴇʟᴇᴛᴇᴅ `{count}` ᴍᴇssᴀɢᴇs.**")
+        confirm = await msg.reply(f"ᴅᴇʟᴇᴛᴇᴅ `{count}` ᴍᴇssᴀɢᴇs ✅.")
         await asyncio.sleep(3)
         await confirm.delete()
     except MessageDeleteForbidden:
-        await msg.reply("**ɪ ᴄᴀɴ'ᴛ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴛʜɪs ᴄʜᴀᴛ. ᴍᴀʏ ʙᴇ ᴛᴏᴏ ᴏʟᴅ ᴏʀ ɴᴏ ʀɪɢʜᴛs.**")
+        await msg.reply("ɪ ᴄᴀɴ'ᴛ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴛʜɪs ᴄʜᴀᴛ. ᴍᴀʏ ʙᴇ ᴛᴏᴏ ᴏʟᴅ ᴏʀ ɴᴏ ʀɪɢʜᴛs.")
     except RPCError as e:
-        await msg.reply(f"**ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ:**\n<code>{e}</code>")
+        await msg.reply(f"ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ:\n<code>{e}</code>")
 
 
 @app.on_message(filters.command("spurge") & admin_filter)
 async def spurge(app: Client, msg: Message):
     if msg.chat.type != ChatType.SUPERGROUP:
-        return await msg.reply("**ɪ ᴄᴀɴ'ᴛ ᴘᴜʀɢᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴀ ʙᴀsɪᴄ ɢʀᴏᴜᴘ. ᴘʟᴇᴀsᴇ ᴄᴏɴᴠᴇʀᴛ ɪᴛ ᴛᴏ ᴀ sᴜᴘᴇʀɢʀᴏᴜᴘ.**")
+        return await msg.reply("ɪ ᴄᴀɴ'ᴛ ᴘᴜʀɢᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴀ ʙᴀsɪᴄ ɢʀᴏᴜᴘ. ᴘʟᴇᴀsᴇ ᴄᴏɴᴠᴇʀᴛ ɪᴛ ᴛᴏ ᴀ sᴜᴘᴇʀɢʀᴏᴜᴘ.")
 
     if not msg.reply_to_message:
-        return await msg.reply("**ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ sᴛᴀʀᴛ ᴘᴜʀɢᴇ!**")
+        return await msg.reply("ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ sᴛᴀʀᴛ ᴘᴜʀɢᴇ!")
 
     message_ids = list(range(msg.reply_to_message.id, msg.id))
     m_list = list(divide_chunks(message_ids))
@@ -62,18 +62,18 @@ async def spurge(app: Client, msg: Message):
                 await asyncio.sleep(e.value)
         await msg.delete()
     except MessageDeleteForbidden:
-        await msg.reply("**ɪ ᴄᴀɴ'ᴛ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴛʜɪs ᴄʜᴀᴛ.**")
+        await msg.reply("ɪ ᴄᴀɴ'ᴛ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴛʜɪs ᴄʜᴀᴛ.")
     except RPCError as e:
-        await msg.reply(f"**ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ:**\n<code>{e}</code>")
+        await msg.reply(f"ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ:\n<code>{e}</code>")
 
 
 @app.on_message(filters.command("del") & admin_filter)
 async def del_msg(app: Client, msg: Message):
     if msg.chat.type != ChatType.SUPERGROUP:
-        return await msg.reply("**ɪ ᴄᴀɴ'ᴛ ᴘᴜʀɢᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴀ ʙᴀsɪᴄ ɢʀᴏᴜᴘ.**")
+        return await msg.reply("ɪ ᴄᴀɴ'ᴛ ᴘᴜʀɢᴇ ᴍᴇssᴀɢᴇs ɪɴ ᴀ ʙᴀsɪᴄ ɢʀᴏᴜᴘ.")
 
     if not msg.reply_to_message:
-        return await msg.reply("**ᴡʜᴀᴛ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴇʟᴇᴛᴇ?**")
+        return await msg.reply("ᴡʜᴀᴛ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴇʟᴇᴛᴇ?")
 
     try:
         await msg.delete()
@@ -81,4 +81,4 @@ async def del_msg(app: Client, msg: Message):
     except FloodWait as e:
         await asyncio.sleep(e.value)
     except Exception as e:
-        await msg.reply(f"**ғᴀɪʟᴇᴅ ᴛᴏ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇ:**\n<code>{e}</code>")
+        await msg.reply(f"ғᴀɪʟᴇᴅ ᴛᴏ ᴅᴇʟᴇᴛᴇ ᴍᴇssᴀɢᴇ:\n<code>{e}</code>")
