@@ -89,7 +89,7 @@ async def ban_cmd(client, message: Message):
         await client.ban_chat_member(message.chat.id, uid)
         await message.reply_text(_format_success("Ban", message, uid, name, reason))
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ qᴛᴛ ❤️")
     except UserAdminInvalid:
         await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
 
@@ -113,7 +113,7 @@ async def unban_cmd(client, message: Message):
         await client.unban_chat_member(message.chat.id, uid)
         await message.reply_text(_format_success("Unban", message, uid, name, reason))
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ qᴛᴛ ❤️")
 
 # ────────────────────────────────────────────────────────────
 # /mute
@@ -135,7 +135,7 @@ async def mute_cmd(client, message: Message):
         await client.restrict_chat_member(message.chat.id, uid, _DEF_MUTE_PERMS)
         await message.reply_text(_format_success("Mute", message, uid, name, reason))
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ qᴛᴛ")
     except UserAdminInvalid:
         await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
 
@@ -167,7 +167,7 @@ async def unmute_cmd(client, message: Message):
         await client.restrict_chat_member(message.chat.id, uid, perms)
         await message.reply_text(_format_success("Unmute", message, uid, name, reason))
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ qᴛᴛ ❤️")
 
 # ────────────────────────────────────────────────────────────
 # /tmute
@@ -199,7 +199,7 @@ async def tmute_cmd(client, message: Message):
         await client.restrict_chat_member(message.chat.id, user.id, _DEF_MUTE_PERMS, until_date=until)
         await message.reply_text(_format_success(f"Mute for {time_arg}", message, user.id, user.first_name, reason))
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ qᴛᴛ ❤️")
     except UserAdminInvalid:
         await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
 
@@ -221,7 +221,7 @@ async def kick_cmd(client, message: Message):
         await client.unban_chat_member(message.chat.id, uid)
         await message.reply_text(_format_success("Kick", message, uid, name, reason))
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ qᴛᴛ ❤️")
     except UserAdminInvalid:
         await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
 
@@ -261,7 +261,7 @@ async def sban_cmd(client, message: Message):
         await client.ban_chat_member(message.chat.id, uid)
         await message.delete()  # silent
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ qᴛᴛ ❤️")
     except UserAdminInvalid:
         await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
 
@@ -278,7 +278,7 @@ async def kickme_cmd(client, message: Message):
         await client.unban_chat_member(message.chat.id, message.from_user.id)
         await message.reply_text("ᴛʜɪs ɢʀᴏᴜᴘ ᴅᴏɴᴛ ᴅᴇsᴇʀᴠᴇ ʏᴏᴜ 🥺")
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ qᴛᴛ ❤️")
 
 # ────────────────────────────────────────────────────────────
 # /tban
@@ -310,6 +310,6 @@ async def tban_cmd(client, message: Message):
         await client.ban_chat_member(message.chat.id, user.id, until_date=until)
         await message.reply_text(_format_success(f"Ban for {time_arg}", message, user.id, user.first_name, reason))
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ qᴛᴛ ❤️")
     except UserAdminInvalid:
         await message.reply_text("ʜᴇ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴍʏ ᴅᴜᴍʙ ᴄᴜᴛɪᴇ 🥺")
