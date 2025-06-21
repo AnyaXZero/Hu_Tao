@@ -120,7 +120,7 @@ async def promote_command(client, message: Message):
                 title = "⚠️ Couldn’t set custom title (not a supergroup)"
         await message.reply_text(_format_success("Promoted", message, uid, name, title))
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ ᴄᴜᴛɪᴇ ❤️")
     except UserAdminInvalid:
         await message.reply_text("I cannot promote that user.")
 
@@ -154,7 +154,7 @@ async def fullpromote_command(client, message: Message):
                 title = "⚠️ Couldn’t set custom title (not a supergroup)"
         await message.reply_text(_format_success("Fully promoted", message, uid, name, title))
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜꜱᴛ ꜰᴏʀ ʏᴏᴜ ᴄᴜɪᴛᴇ ❤️")
     except UserAdminInvalid:
         await message.reply_text("I cannot promote that user.")
 
@@ -183,7 +183,7 @@ async def demote_command(client, message: Message):
         )
         await message.reply_text(_format_success("Demoted", message, uid, name))
     except ChatAdminRequired:
-        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ ᴄᴜᴛɪᴇ ❤️")
     except UserAdminInvalid:
         await message.reply_text("I cannot demote that user.")
 
@@ -230,7 +230,7 @@ async def tempadmin_command(client, message: Message):
                 title = "⚠️ Couldn’t set custom title (not a supergroup)"
         await message.reply_text(_format_success(f"Temp‑promoted for {time_arg}", message, uid, name, title))
     except ChatAdminRequired:
-        return await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ᴅɪɢɪᴛɪʟ ᴍᴀɴsᴛʀɪʙᴀᴛɪᴏɴ 🤧")
+        return await message.reply_text("ɪ ᴀᴍ ʜᴇʀᴇ ᴊᴜsᴛ ғᴏʀ ʏᴏᴜ ᴄᴜᴛɪᴇ ❤️")
     except UserAdminInvalid:
         return await message.reply_text("I cannot promote that user.")
 
