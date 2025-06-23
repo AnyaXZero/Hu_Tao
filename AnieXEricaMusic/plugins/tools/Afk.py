@@ -1,42 +1,55 @@
-from pyrogram import filters
-from pyrogram.types import Message
-from AnieXEricaMusic import app  # Use your actual bot/app instance
 from datetime import datetime
 
-# Store AFK data globally (you can later use DB for persistence)
-AFK_USERS = {}
-AFK_REASON = {}
-AFK_TIME = {}
+from pyrogram import filters
+from pyrogram.types import Message
+from pyrogram.enums import ChatType
+
+from AnieXEricaMusic import app
+from AnieXEricaMusic.mongo.afkdb import afkdb
+
 
 @app.on_message(filters.command("afk") & filters.me)
-async def set_afk(_, message: Message):
-    reason = " ".join(message.command[1:]) if len(message.command) > 1 else "ɪ'ᴍ ᴀꜰᴋ."
-    user_id = message.from_user.id
+async def afk_handler(_, message: Message):
+    reason = " ".join(message.command[1:]) or "ɪ'ᴍ ᴀꜰᴋ."
+    await set_afk(message.from_user.id, reason)
+    await message.reply_text(f"ʏᴏᴜ ᴀʀᴇ ɴᴏᴡ ᴀꜰᴋ!\n\n📝 ʀᴇᴀꜱᴏɴ: {reason}")
 
-    AFK_USERS[user_id] = True
-    AFK_REASON[user_id] = reason
-    AFK_TIME[user_id] = datetime.utcnow()
 
-    await message.reply_text(f"ʏᴏᴜ ᴀʀᴇ ɴᴏᴡ ᴀꜰᴋ.\n📝 ʀᴇᴀꜱᴏɴ: {reason}")
-
-@app.on_message(filters.text & filters.private | filters.group)
-async def afk_reply(_, message: Message):
+@app.on_message(filters.text & (filters.group | filters.private))
+async def afk_check(_, message: Message):
     if not message.from_user:
         return
 
     sender_id = message.from_user.id
-    mentioned_users = [ent.user.id for ent in message.entities or [] if ent.type == "mention" or ent.type == "text_mention"]
-    
-    # Someone mentioned an AFK user
-    for user_id in mentioned_users:
-        if user_id in AFK_USERS and AFK_USERS[user_id]:
-            reason = AFK_REASON.get(user_id, "AFK")
-            since = AFK_TIME.get(user_id)
-            afk_since = f"Since: {since.strftime('%Y-%m-%d %H:%M:%S')} UTC" if since else ""
-            await message.reply_text(f"ᴛʜɪꜱ ᴜꜱᴇʀ ɪꜱ ᴀꜰᴋ!\n📝 ʀᴇᴀꜱᴏɴ: {reason}\n{afk_since}")
-            return
 
-    # User sends message => they are no longer AFK
-    if sender_id in AFK_USERS and AFK_USERS[sender_id]:
-        AFK_USERS[sender_id] = False
-        await message.reply_text(" ᴡᴇʟᴄᴏᴍᴇ ʙᴀᴄᴋ! ʏᴏᴜ ᴀʀᴇ ɴᴏ ʟᴏɴɢᴇʀ ᴀꜰᴋ.")
+    # Unset AFK if the sender was AFK
+    if await get_afk(sender_id):
+        await remove_afk(sender_id)
+        await message.reply_text("ᴡᴇʟᴄᴏᴍᴇ ʙᴀᴄᴋ! ʏᴏᴜ ᴀʀᴇ ɴᴏ ʟᴏɴɢᴇʀ ᴀꜰᴋ.")
+        return
+
+    # Check mentions in message
+    if message.entities:
+        mentioned_ids = []
+
+        for ent in message.entities:
+            if ent.type == "text_mention" and ent.user:
+                mentioned_ids.append(ent.user.id)
+            elif ent.type == "mention":
+                username = message.text[ent.offset + 1 : ent.offset + ent.length]
+                try:
+                    user = await app.get_users(username)
+                    mentioned_ids.append(user.id)
+                except Exception:
+                    continue
+
+        for uid in mentioned_ids:
+            afk_data = await get_afk(uid)
+            if afk_data:
+                since = afk_data.get("since")
+                reason = afk_data.get("reason", "AFK")
+                since_text = datetime.fromisoformat(since).strftime("%d %b %Y, %H:%M UTC") if since else "a while ago"
+                await message.reply_text(
+                    f"ᴛʜɪꜱ ᴜꜱᴇʀ ɪꜱ ᴀꜰᴋ.\n📝 ʀᴇᴀꜱᴏɴ: {reason}\n⏱️ Since: {since_text}"
+                )
+                break
