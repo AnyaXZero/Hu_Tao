@@ -5,7 +5,7 @@ from pyrogram.types import Message
 from pyrogram.enums import ChatType
 
 from AnieXEricaMusic import app
-from AnieXEricaMusic.mongo.afkdb import afkdb
+from AnieXEricaMusic.mongo.afkdb import afkdb as db
 
 
 @app.on_message(filters.command("afk") & filters.me)
