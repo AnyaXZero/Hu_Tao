@@ -1,40 +1,40 @@
-from AnieXEricaMusic.utils.mongo import db
+from AnieXEricaMusic.utils.mongo import coupledb
 
-coupledb = db.couple
 
-async def _get_lovers(cid: int):
-    lovers = await coupledb.find_one({"chat_id": cid})
-    if lovers and "couple" in lovers:
-        return lovers["couple"]
-    else:
-        return {}
+async def _doc(cid: int) -> dict:
+    return await coupledb.find_one({"chat_id": cid}) or {}
 
-async def _get_image(cid: int):
-    lovers = await coupledb.find_one({"chat_id": cid})
-    if lovers and "img" in lovers:
-        return lovers["img"]
-    else:
-        return {}
 
 async def get_couple(cid: int, date: str):
-    lovers = await _get_lovers(cid)
-    if date in lovers:
-        return lovers[date]
-    else:
-        return False
+    doc = await _doc(cid)
+    couple_map = doc.get("couple", {})
 
-async def save_couple(cid: int, date: str, couple: dict, img: str):
-    lovers = await _get_lovers(cid)
-    
-    # Ensure 'couple' is a dictionary and 'img' is a string (URL or image path)
-    if not isinstance(couple, dict):
-        raise ValueError("Couple data should be a dictionary")
-    if not isinstance(img, str):
-        raise ValueError("Image URL should be a string")
-    
-    lovers[date] = couple
+    if date not in couple_map:
+        return None
+
+    img_field = doc.get("img", {})
+    img_path = img_field.get(date) if isinstance(img_field, dict) else img_field
+
+    return {
+        "user1": couple_map[date]["user1"],
+        "user2": couple_map[date]["user2"],
+        "img": img_path
+    }
+
+
+async def save_couple(cid: int, date: str, couple: dict, img_path: str):
+    doc = await _doc(cid)
+    couple_map = doc.get("couple", {})
+    img_field = doc.get("img", {})
+
+    if not isinstance(img_field, dict):
+        img_field = {}
+
+    couple_map[date] = couple
+    img_field[date] = img_path
+
     await coupledb.update_one(
         {"chat_id": cid},
-        {"$set": {"couple": lovers, "img": {date: img}}},
-        upsert=True,
+        {"$set": {"couple": couple_map, "img": img_field}},
+        upsert=True
     )
