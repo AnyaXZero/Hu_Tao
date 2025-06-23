@@ -10,14 +10,14 @@ AFK_TIME = {}
 
 @app.on_message(filters.command("afk") & filters.me)
 async def set_afk(_, message: Message):
-    reason = " ".join(message.command[1:]) if len(message.command) > 1 else "I'm AFK."
+    reason = " ".join(message.command[1:]) if len(message.command) > 1 else "ɪ'ᴍ ᴀꜰᴋ."
     user_id = message.from_user.id
 
     AFK_USERS[user_id] = True
     AFK_REASON[user_id] = reason
     AFK_TIME[user_id] = datetime.utcnow()
 
-    await message.reply_text(f"🔕 You are now AFK.\n📝 Reason: {reason}")
+    await message.reply_text(f"ʏᴏᴜ ᴀʀᴇ ɴᴏᴡ ᴀꜰᴋ.\n📝 ʀᴇᴀꜱᴏɴ: {reason}")
 
 @app.on_message(filters.text & filters.private | filters.group)
 async def afk_reply(_, message: Message):
@@ -33,10 +33,10 @@ async def afk_reply(_, message: Message):
             reason = AFK_REASON.get(user_id, "AFK")
             since = AFK_TIME.get(user_id)
             afk_since = f"Since: {since.strftime('%Y-%m-%d %H:%M:%S')} UTC" if since else ""
-            await message.reply_text(f"This user is AFK!\n📝 Reason: {reason}\n{afk_since}")
+            await message.reply_text(f"ᴛʜɪꜱ ᴜꜱᴇʀ ɪꜱ ᴀꜰᴋ!\n📝 ʀᴇᴀꜱᴏɴ: {reason}\n{afk_since}")
             return
 
     # User sends message => they are no longer AFK
     if sender_id in AFK_USERS and AFK_USERS[sender_id]:
         AFK_USERS[sender_id] = False
-        await message.reply_text("Welcome back! You are no longer AFK.")
+        await message.reply_text(" ᴡᴇʟᴄᴏᴍᴇ ʙᴀᴄᴋ! ʏᴏᴜ ᴀʀᴇ ɴᴏ ʟᴏɴɢᴇʀ ᴀꜰᴋ.")
