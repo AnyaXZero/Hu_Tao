@@ -17,13 +17,13 @@ def get_last_seen(status):
         status = status.name.lower()
 
     return {
-        "online": "☑️ ᴏɴʟɪɴᴇ",
-        "offline": "❄️ ᴏғғʟɪɴᴇ",
-        "recently": "⏱ ʀᴇᴄᴇɴᴛʟʏ",
-        "last_week": "🗓 ʟᴀsᴛ ᴡᴇᴇᴋ",
-        "last_month": "📆 ʟᴀsᴛ ᴍᴏɴᴛʜ",
-        "long_ago": "😴 ʟᴏɴɢ ᴛɪᴍᴇ ᴀɢᴏ"
-    }.get(status, "❓ ᴜɴᴋɴᴏᴡɴ")
+        "online": "ᴏɴʟɪɴᴇ",
+        "offline": "ᴏғғʟɪɴᴇ",
+        "recently": "ʀᴇᴄᴇɴᴛʟʏ",
+        "last_week": "ʟᴀsᴛ ᴡᴇᴇᴋ",
+        "last_month": "ʟᴀsᴛ ᴍᴏɴᴛʜ",
+        "long_ago": "ʟᴏɴɢ ᴛɪᴍᴇ ᴀɢᴏ"
+    }.get(status, "ᴜɴᴋɴᴏᴡɴ")
 
 
 @app.on_message(filters.command(["info", "userinfo", "whois"]))
@@ -58,21 +58,15 @@ async def whois_handler(_, message: Message):
             f"➣ <b>ᴅᴀᴛᴀᴄᴇɴᴛᴇʀ ɪᴅ:</b> {dc_id}\n"
             f"➣ <b>ʟᴀɴɢᴜᴀɢᴇ:</b> {lang}\n"
             f"━━━━━━━━━━━━━━━\n"
-            f"➣ <b>ᴠᴇʀɪғɪᴇᴅ:</b> {'ʏᴇs ✅' if user.is_verified else 'ɴᴏ 🥀'}\n"
-            f"➣ <b>ᴘʀᴇᴍɪᴜᴍ:</b> {'ʏᴇs ☑️' if user.is_premium else 'ɴᴏ 🥀'}\n"
-            f"➣ <b>ʙᴏᴛ:</b> {'ʏᴇs 🤖' if user.is_bot else 'ɴᴏ 👤'}\n"
-            f"➣ <b>sᴄᴀᴍ ᴀᴄᴄᴏᴜɴᴛ:</b> {'ʏᴇs ⚠️' if getattr(user, 'is_scam', False) else 'ɴᴏ ☑️'}\n"
-            f"➣ <b>ғᴀᴋᴇ ᴀᴄᴄᴏᴜɴᴛ:</b> {'ʏᴇs 🎭' if getattr(user, 'is_fake', False) else 'ɴᴏ ☑️'}\n"
-            f"➣ <b>ᴘʀᴏғɪʟᴇ ᴘɪᴄᴛᴜʀᴇ:</b> {'ʏᴇs 🌠' if user.photo else 'ɴᴏ 🥀'}\n"
+            f"➣ <b>ᴠᴇʀɪғɪᴇᴅ:</b> {'ʏᴇs' if user.is_verified else 'ɴo'}\n"
+            f"➣ <b>ᴘʀᴇᴍɪᴜᴍ:</b> {'ʏᴇs' if user.is_premium else 'ɴᴏ'}\n"
+            f"➣ <b>ʙᴏᴛ:</b> {'ʏᴇs' if user.is_bot else 'ɴᴏ'}\n"
+            f"➣ <b>sᴄᴀᴍ ᴀᴄᴄᴏᴜɴᴛ:</b> {'ʏᴇs' if getattr(user, 'is_scam', False) else 'ɴᴏ'}\n"
+            f"➣ <b>ғᴀᴋᴇ ᴀᴄᴄᴏᴜɴᴛ:</b> {'ʏᴇs' if getattr(user, 'is_fake', False) else 'ɴᴏ'}\n"
+            f"➣ <b>ᴘʀᴏғɪʟᴇ ᴘɪᴄᴛᴜʀᴇ:</b> {'ʏᴇs' if user.photo else 'ɴᴏ'}\n"
             f"━━━━━━━━━━━━━━━\n"
             f"➣ <b>ʙɪᴏ:</b> <code>{bio}</code>"
         )
-
-        profile_url = f"https://t.me/{user.username}" if user.username else f"tg://user?id={user.id}"
-        buttons = InlineKeyboardMarkup([[
-            InlineKeyboardButton("👤 ᴠɪᴇᴡ ᴘʀᴏғɪʟᴇ", url=profile_url),
-            InlineKeyboardButton("📞 ᴘʜᴏɴᴇ", url="tg://settings")
-        ]])
 
         if user.photo:
             photo = await app.download_media(user.photo.big_file_id)
@@ -97,6 +91,6 @@ async def whois_handler(_, message: Message):
         await asyncio.sleep(e.value)
         return await whois_handler(_, message)
     except RPCError as e:
-        await message.reply(f"⚠️ ʀᴘᴄ ᴇʀʀᴏʀ:\n<code>{e}</code>")
+        await message.reply(f"ʀᴘᴄ ᴇʀʀᴏʀ:\n<code>{e}</code>")
     except Exception as e:
-        await message.reply(f"🥀 ᴇʀʀᴏʀ:\n<code>{e}</code>")
+        await message.reply(f"ᴇʀʀᴏʀ:\n<code>{e}</code>")
