@@ -68,6 +68,11 @@ async def whois_handler(_, message: Message):
             f"➣ <b>ʙɪᴏ:</b> <code>{bio}</code>"
         )
 
+        profile_url = f"https://t.me/{user.username}" if user.username else f"tg://user?id={user.id}"
+        buttons = InlineKeyboardMarkup([
+            InlineKeyboardButton("👤 ᴠɪᴇᴡ ᴘʀᴏғɪʟᴇ", url=profile_url),
+        ])
+
         if user.photo:
             photo = await app.download_media(user.photo.big_file_id)
             await app.edit_message_media(
