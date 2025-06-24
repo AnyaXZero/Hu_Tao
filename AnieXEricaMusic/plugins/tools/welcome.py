@@ -9,9 +9,27 @@ from pyrogram.types import (
 
 from AnieXEricaMusic import app
 
+# ─── CONFIG ───
+BG_PATH      = "AnieXEricaMusic/assets/AnnieNwel.png"
+FALLBACK_PIC = "AnieXEricaMusic/assets/upic.png"
+FONT_PATH    = "AnieXEricaMusic/assets/ArialReg.ttf"
+BTN_VIEW     = "๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏"
+BTN_ADD      = "๏ ᴋɪᴅɴᴀᴘ ᴍᴇ ๏"
+
 CAPTION_TXT = """
 𝐖ᴇʟᴄᴏᴍᴇ ᴛᴏ {chat_title}
+
+─────✧✦✧─────
+
 ❁ 𝐍ᴀᴍᴇ : {mention}
+
+❁ ɪᴅ : {uid}
+
+❁ 𝐔ꜱᴇʀɴᴀᴍᴇ : @{uname}
+
+❁ Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs : {count}
+
+─────✧✦✧─────
 """
 
 JOIN_THRESHOLD = 10
@@ -167,7 +185,7 @@ async def welcome(client, update: ChatMemberUpdated):
             except: pass
 
     except Exception as e:
-        await client.send_message(cid, f"ᴡᴇʟᴄᴏᴍᴇ, {user.mention},{m.chat.title}!")
+        await client.send_message(cid, f"🎉 Welcome, {user.mention}!")
     finally:
         for f in (avatar, img):
             if f and os.path.exists(f) and "AnieXEricaMusic/assets" not in f:
