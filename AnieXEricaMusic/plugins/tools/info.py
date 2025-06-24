@@ -69,9 +69,10 @@ async def whois_handler(_, message: Message):
         )
 
         profile_url = f"https://t.me/{user.username}" if user.username else f"tg://user?id={user.id}"
-        buttons = InlineKeyboardMarkup([
+        buttons = InlineKeyboardMarkup([[
             InlineKeyboardButton("👤 ᴠɪᴇᴡ ᴘʀᴏғɪʟᴇ", url=profile_url),
-        ])
+            InlineKeyboardButton("📞 ᴘʜᴏɴᴇ", url="tg://settings")
+        ]])
 
         if user.photo:
             photo = await app.download_media(user.photo.big_file_id)
@@ -96,6 +97,6 @@ async def whois_handler(_, message: Message):
         await asyncio.sleep(e.value)
         return await whois_handler(_, message)
     except RPCError as e:
-        await message.reply(f"ʀᴘᴄ ᴇʀʀᴏʀ:\n<code>{e}</code>")
+        await message.reply(f"⚠️ ʀᴘᴄ ᴇʀʀᴏʀ:\n<code>{e}</code>")
     except Exception as e:
-        await message.reply(f"ᴇʀʀᴏʀ:\n<code>{e}</code>")
+        await message.reply(f"🥀 ᴇʀʀᴏʀ:\n<code>{e}</code>")
