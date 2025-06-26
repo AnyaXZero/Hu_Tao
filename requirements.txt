@@ -31,5 +31,6 @@ bs4
 wget
 blackpink
 Telegraph
+pyromod
 
 
