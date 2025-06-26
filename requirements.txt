@@ -34,4 +34,4 @@ Telegraph
 flask
 pyromod
 
-
+httpx==0.27.2
