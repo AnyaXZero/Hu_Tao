@@ -31,6 +31,7 @@ bs4
 wget
 blackpink
 Telegraph
+flask
 pyromod
 
 
